@@ -7,9 +7,11 @@ interface Props {
 export const Logo = ({ className }: Props) => {
   return (
     <img
-      src="/logo.png" // Update this path if your logo is in a different location
-      alt="logo"
+      src="/logo_light.svg"
+      alt="Alita Health Logo"
       className={cn('logo', className)}
     />
   );
 };
+
+export default Logo;
