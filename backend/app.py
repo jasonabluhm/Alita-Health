@@ -130,15 +130,28 @@ class EventHandler(AsyncAssistantEventHandler):
         await self.current_step.update()
 
     async def on_image_file_done(self, image_file):
-        image_id = image_file.file_id
-        response = await async_openai_client.files.with_raw_response.content(image_id)
-        image_element = cl.Image(
-            name=image_id, content=response.content, display="inline", size="large"
-        )
-        if not self.current_message.elements:
-            self.current_message.elements = []
-        self.current_message.elements.append(image_element)
-        await self.current_message.update()
+        if not image_file or not image_file.file_id:
+            print("Warning: Image file ID is empty, skipping image processing")
+            return
+    
+        try:
+            response = await async_openai_client.files.with_raw_response.content(
+                image_file.file_id
+            )
+            image_element = cl.Image(
+                name=image_file.file_id,
+                content=response.content,
+                display="inline",
+                size="large"
+            )
+            if not self.current_message.elements:
+                self.current_message.elements = []
+            self.current_message.elements.append(image_element)
+            await self.current_message.update()
+        except ValueError as e:
+            print(f"Error processing image: {e}")
+            # Handle the error gracefully
+            pass
 
 
 async def upload_files(files: List[Element]):

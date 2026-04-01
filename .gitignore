@@ -64,3 +64,4 @@ backend/.dmypy.json
 
 .history
 backend/.env
+backend/.env
