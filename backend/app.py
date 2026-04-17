@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import List
+from typing import Dict, List, Optional
 
 import plotly
 from literalai.helper import utc_now
@@ -20,6 +20,18 @@ assistant = sync_openai_client.beta.assistants.retrieve(
 )
 
 config.ui.name = assistant.name
+
+TEST_TOKEN = "jason-demo-token"
+
+
+@cl.header_auth_callback
+def header_auth_callback(headers: Dict) -> Optional[cl.User]:
+    token = headers.get("Authorization")
+
+    if token == f"Bearer {TEST_TOKEN}":
+        return cl.User(identifier="Jason")
+    # fall back for demo testing
+    return cl.User(identifier="Jason")
 
 
 class EventHandler(AsyncAssistantEventHandler):
@@ -133,7 +145,7 @@ class EventHandler(AsyncAssistantEventHandler):
         if not image_file or not image_file.file_id:
             print("Warning: Image file ID is empty, skipping image processing")
             return
-    
+
         try:
             response = await async_openai_client.files.with_raw_response.content(
                 image_file.file_id
@@ -142,7 +154,7 @@ class EventHandler(AsyncAssistantEventHandler):
                 name=image_file.file_id,
                 content=response.content,
                 display="inline",
-                size="large"
+                size="large",
             )
             if not self.current_message.elements:
                 self.current_message.elements = []
