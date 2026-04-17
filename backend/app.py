@@ -15,6 +15,14 @@ from chainlit.element import Element
 async_openai_client = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 sync_openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
+# NEW
+# Configure persistent chat history with SQLAlchemy
+# database_url = os.environ.get("DATABASE_URL")
+# if database_url:
+#     cl.data_layer = SQLAlchemyDataLayer(connstring=database_url)
+
+# NEW ^
+
 assistant = sync_openai_client.beta.assistants.retrieve(
     os.environ.get("OPENAI_ASSISTANT_ID")
 )
