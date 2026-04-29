@@ -46,16 +46,6 @@ pip install -r requirements.txt
 
 Chainlit is open-source and licensed under the [Apache 2.0](LICENSE) license.<h1 align="center">Alita Health AI Insights 🧠</h1>
 
-<p align="center">
-<b>AI-powered insights for healthcare data, patient trends, and clinical decision support</b>
-</p>
-
-<p align="center">
-   <img alt="Python" src="https://img.shields.io/badge/python-3.10%2B-blue">
-   <img alt="AI Powered" src="https://img.shields.io/badge/AI-LLM%20Driven-green">
-   <img alt="Status" src="https://img.shields.io/badge/status-active-success">
-</p>
-
 ---
 
 ## Overview
