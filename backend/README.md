@@ -1,7 +1,7 @@
 <h1 align="center">Alita Health AI Insights 🧠</h1>
 
 <p align="center">
-<b>AI-powered insights for healthcare data, patient trends, and clinical decision support</b>
+<b>AI-powered insights for healthcare operations, trends, and decision support</b>
 </p>
 
 <p align="center">
@@ -14,68 +14,34 @@
 
 ## Overview
 
-**Alita Health AI Insights** is a conversational AI platform designed to extract actionable insights from healthcare data. It allows users to interact with complex datasets using natural language and supports tasks such as:
+**Alita Health AI Insights** is a conversational AI platform designed to extract actionable insights from healthcare-related operational and industry data. It allows users to interact with datasets using natural language and supports tasks such as:
 
 - Patient trend analysis  
-- Clinical data summarization  
+- Data insights and summarization  
 - Risk pattern identification  
 - Operational and financial insights  
 
-The system leverages large language models and a modular tool-based architecture to deliver fast, interpretable results.
+The system leverages large language models and a modular tool-based architecture to deliver fast, interpretable results.  
+It is designed to work with **non-sensitive data only** (e.g., metadata, scheduling, and operational datasets) and does not access protected health information (PHI).
 
 ---
 
 ## Features
 
-- Conversational interface for querying healthcare data  
-- AI-generated summaries and insights  
+- Conversational interface for querying industry data  
+- AI-generated insights and summaries  
 - Modular tool integration for analytics  
 - Real-time interaction  
 - Scalable and extensible design  
 
 ---
 
-## Installation
+## Installation & Running
 
-Clone the repository and install dependencies:
-
-```sh
-git clone <your-repo-url>
-cd alita-health-ai
-pip install -r requirements.txt
-
-Chainlit is open-source and licensed under the [Apache 2.0](LICENSE) license.<h1 align="center">Alita Health AI Insights 🧠</h1>
-
----
-
-## Overview
-
-**Alita Health AI Insights** is a conversational AI platform designed to extract actionable insights from healthcare data. It allows users to interact with complex datasets using natural language and supports tasks such as:
-
-- Patient trend analysis  
-- Clinical data summarization  
-- Risk pattern identification  
-- Operational and financial insights  
-
-The system leverages large language models and a modular tool-based architecture to deliver fast, interpretable results.
-
----
-
-## Features
-
-- Conversational interface for querying healthcare data  
-- AI-generated summaries and insights  
-- Modular tool integration for analytics  
-- Real-time interaction  
-- Scalable and extensible design  
-
----
-
-## Installation
-
-Clone the repository and install dependencies:
+Clone the repository, install dependencies, and start the app:
 
 ```sh
 git clone <your-repo-url>
 cd alita-health-ai
 pip install -r requirements.txt
+chainlit run app.py -w
